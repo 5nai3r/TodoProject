@@ -1,1 +1,29 @@
 
+
+#todo-list li .destroy{margin: 0 !important;top:10px !important;}
+#todo-list li .destroy.more{margin: 0 ;top:10px; right: 50px;color: #5AA669;}
+#todo-list li .destroy.more:after{content: "";}
+#todo-list li .destroy.pencil{margin: 0 ;top:10px; right: 90px;color: #538BD3;}
+#todo-list li .destroy.pencil:after{content: "";}
+#todo-list li .destroy.pencil2{margin: 0 ;top:10px; right: 50px;color: #538BD3;}
+#todo-list li .destroy.pencil2:after{content: "";}
+.projecttodo p {text-align: center; color: #5AA669; padding-left: 268px;}
+.addTodo input {display: none;border: 0;background: #fff;border-bottom: 2px dotted #bbb;color: #666;height: 40px;width: 250px;font-family: 'Life Savers';font-weight: 700;font-size: 25;margin: 0 auto;margin-top: 10px;text-align: center;}
+.ok form input {display: block;}
+.fa-times-circle{color: #a88a8a !important;}
+.projecttodo form .edit {width: 520px !important; }
+/*
+.editing label,.editing button {display: none;}
+.editing .edit {display: block;}
+.edit {display: none;}
+*/
+.projecttodo{display: none;}
+#todo-list li .toggle:after {content: "\f00c" !important;}
+#todo-list li .rmv.fa.destroy:after {content: "\f057" !important;}
+#header:after {content: "Write down and press 'Enter' to add a new Project to the list" !important;}
+#main:after { content: 'Press Enter to finish editing.' !important;}
+.footertgl{margin-left: 155px;}
+#todo-count{margin-left: 330px !important;width: 120px !important;}
+#info:after{content: "Coded by 5nai3r - Based on TodoMvc and gregloby CSS Skin. My email:dzmakr@gmail.com"!important;}
+
+
