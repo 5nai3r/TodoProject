@@ -1,1 +1,70 @@
+<html>
+<head>
+	<title>Project Todo</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="http://gregloby.github.io/todomvc-css-skin/bower_components/todomvc-common/base.css">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+<body ng-app="todo">
+<section id="todoapp" ng-controller="todoCtrl">
+	<header id="header"><h1>Todos List</h1>
+	<form ng-submit="addTodo()">
+		<input id="new-todo" placeholder="Add new project" ng-model="newTodo" autofocus/>
+	</form>
+	</header>
 
+<section id="main">
+	<div class="footertgl">
+	<input id="toggle-all" type="checkbox" ng-model="allCheck" ng-click="checkF(allCheck)"/><label for="toggle-all">Mark all as complete</label>
+	</div>
+	<ul id="todo-list">
+		
+		<li class="" ng-repeat="todo in todos" ng-class="{completed : todo.completed,editing : todo.editing}" ng-init="outerIndex=$index">
+			<div class="view">
+				<input type="checkbox" class="toggle fa"  ng-model="todo.completed"/>
+				<label  >{{todo.name}}</label>
+				<button class="rmv fa destroy" ng-click="removeTodo($index)"></button>
+				<button class="destroy more fa fa-chevron-circle-down"ng-click="visibleChilde($event)"></button>
+				<button class="destroy pencil fa fa-pencil"ng-click="editTodo(todo)"></button>
+			</div>
+			<form ng-submit="blurTodo(todo)"><input class="edit" id="edit" ng-model="todo.name" ng-blur=""/></form>
+			<ul class="projecttodo">
+				<li ng-repeat="x in todo.todos" ng-class="{completed : x.completed,editing : x.editing}">
+							<div class="view">
+								<input type="checkbox" class="toggle fa" ng-model="x.completed"/>
+								<label  >{{x.todo}}</label>
+								<button class="rmv fa destroy" ng-click="removeTodoprjct($parent.$index,$index)"></button>
+								<button class="destroy pencil2 fa fa-pencil"ng-click="editTodo(x)"></button>
+							</div>
+							<form ng-submit="blurTodo(x)" >
+									<input class="edit" id="edit" ng-model="x.todo" ng-blur=""/>
+								</form>
+
+							
+				</li>
+				<div class="addtodo">
+					<form ng-submit="addPrjctTodo(outerIndex,prjctTodo)"><input ng-model="prjctTodo" placeholder="New Todo for project" class="tache"/>
+					</form>
+					<p ng-click="showtodo($event)" class="fa fa-plus-circle"></p>		
+				</div>
+			</ul>
+		</li>
+	</ul>
+
+
+
+
+
+					<footer id="footer">
+					<span id="todo-count" ><strong>{{remaining}}</strong> project remaining</span>
+					</footer>
+</section>
+
+<footer id="info"></footer>
+
+</section>
+<script type="text/javascript" src="https://code.angularjs.org/1.0.3/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>
